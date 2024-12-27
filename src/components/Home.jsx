@@ -1,11 +1,15 @@
 import React from 'react'
-import { MyDocument } from '../features/PdfPage'
+// import { MyDocument } from '../features/PdfPage'
+import HomeFeatures from './HomeFeatures'
 
 const Home = () => {
   return (
     <div className='p-5'>
+      <HomeFeatures />
 
-      <MyDocument />
+      {/* <FileAdmin /> */}
+
+      {/* <MyDocument /> */}
 
     </div>
   )
