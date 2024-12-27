@@ -18,16 +18,23 @@ export const uploadFileApi = createApi({
       providerTags: ['File']
     }),
 
+    //getFileById
+    getFileById: builder.query({
+      query: (id) => ({
+        url: `/file/${id}`,
+        method: 'GET'
+      }),
+      providerTags: ['File']
+    }),
 
-
-    //get add file
+    // addFile
     addFile: builder.mutation({
       query: (q) => ({
         url: `/file/post-file`,
         body: q.body,
         headers: {
           'Authorization': `${q.token}`,
-          'Content-Type': 'multipart/form-data'
+          // 'Content-Type': 'multipart/form-data'
 
 
 
@@ -37,10 +44,21 @@ export const uploadFileApi = createApi({
       invalidatesTags: ['file']
     }),
 
-    //removeProduct
-    removeProduct: builder.mutation({
+    //updateProuct
+
+    updateFile: builder.mutation({
       query: (q) => ({
         url: `/file/${q.id}`,
+        method: 'PATCH',
+      }),
+      invalidatesTags: ['file']
+
+    }),
+
+    //removeProduct
+    removeProduct: builder.mutation({
+      query: (id) => ({
+        url: `/file/${id}`,
         method: 'DELETE'
       }),
       invalidatesTags: ['file']
@@ -52,6 +70,8 @@ export const uploadFileApi = createApi({
 
 export const {
   useGetUploadFileQuery,
+  useGetFileByIdQuery,
   useAddFileMutation,
+  useUpdateFileMutation,
   useRemoveProductMutation
 } = uploadFileApi;

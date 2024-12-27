@@ -76,7 +76,7 @@ const FileAdmin = () => {
                     </Typography>
                   </td>
                   <td className={classes}>
-                    <Button onClick={() => nav(`/product-edit/${_id}`)} color="light-green" size="sm">Edit</Button>
+                    <Button onClick={() => nav(`/edit-file/${_id}`)} color="light-green" size="sm">Edit</Button>
                   </td>
 
                   <td className={classes}>
