@@ -19,7 +19,7 @@ const SearchInput = () => {
   return (
     <form onSubmit={handleSubmit}>
 
-      <div className="hidden items-center gap-x-2 lg:flex">
+      <div className=" items-center gap-x-2 flex">
         <div className="relative flex w-full gap-2 md:w-max">
           <Input
             type="search"

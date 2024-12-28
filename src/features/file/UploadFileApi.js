@@ -11,11 +11,14 @@ export const uploadFileApi = createApi({
 
     //get uploaded file
     getUploadFile: builder.query({
-      query: (q) => ({
+      query: (search) => ({
         url: `/file/get-file`,
         method: 'GET',
+        params: {
+          search: search
+        }
       }),
-      providerTags: ['File']
+      providesTags: ['File']
     }),
 
     //getFileById
@@ -24,7 +27,7 @@ export const uploadFileApi = createApi({
         url: `/file/${id}`,
         method: 'GET'
       }),
-      providerTags: ['File']
+      providesTags: ['File']
     }),
 
     // addFile
@@ -49,7 +52,11 @@ export const uploadFileApi = createApi({
     updateFile: builder.mutation({
       query: (q) => ({
         url: `/file/${q.id}`,
+        body: q.body,
         method: 'PATCH',
+        headers: {
+          'Authorization': `${q.token}`
+        }
       }),
       invalidatesTags: ['file']
 

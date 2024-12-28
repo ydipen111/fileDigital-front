@@ -11,6 +11,7 @@ import FileAdmin from './features/admin/FIleAdmin'
 import FileForm from './features/admin/FileForm'
 import FileEditForm from './features/admin/FileEditForm'
 import FileEdit from './features/admin/FileEdit'
+import SearchPage from './features/search/SearchPage'
 
 const App = () => {
 
@@ -31,11 +32,14 @@ const App = () => {
       {
         path: 'edit-file/:id',
         element: <FileEdit />
-
       },
       {
         path: 'file-form',
         element: <FileForm />
+      },
+      {
+        path: 'search/:search',
+        element: <SearchPage />
       },
 
       {

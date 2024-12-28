@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 import { useRemoveProductMutation } from "./UploadFileApi";
 export function DeleteFile({ id }) {
   const dispatch = useDispatch();
-  console.log(id);
+
 
 
   const [open, setOpen] = React.useState(false);

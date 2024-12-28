@@ -20,6 +20,7 @@ import { useNavigate } from "react-router";
 import { useUserLogOutMutation } from "../features/auth/authApi";
 import { userLogOut } from "../features/auth/userSlice";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 // import { useUserLogOutMutation } from "../features/auth/authApi";
 
 
@@ -77,6 +78,7 @@ const ProfileMenu = ({ user }) => {
       dispatch(userLogOut());
     } catch (err) {
       console.log(err);
+      toast.error("errors occurs");
     }
   }
 

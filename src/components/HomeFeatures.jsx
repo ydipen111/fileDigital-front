@@ -108,7 +108,7 @@ const HomeFeatures = () => {
                         color="blue-gray"
                         className="font-normal"
                       >
-                        {description}
+                        <span className="font-bold"> Filename :</span> {name}
                       </Typography>
                     </td>
                     <td className={classes}>

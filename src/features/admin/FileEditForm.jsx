@@ -17,15 +17,9 @@ import { useUpdateFileMutation } from "../file/UploadFileApi";
 const FileEditForm = ({ data }) => {
 
   const [updateFile, { isLoading }] = useUpdateFileMutation();
+  // console.log(isLoading);
 
-
-
-
-
-
-  console.log(data.description);
-
-
+  const { user } = useSelector((state) => state.userSlice);
 
   const nav = useNavigate();
 
@@ -57,22 +51,23 @@ const FileEditForm = ({ data }) => {
       onSubmit: async (val, { resetForm }) => {
         const formData = new FormData();
 
-        console.log(formData);
-
         // Object.entries(val).forEach(([k, v]) => {
         //   formData.append(k, v);
         // });
+        console.log(val);
+
 
         formData.append('name', val.name);
         formData.append('description', val.description);
         formData.append('metaData', val.metaData);
         formData.append('fileType', val.fileType);
         try {
-          await addFile({
+          const response = await updateFile({
             body: formData,
+            id: data._id,
             token: user.token
           }).unwrap();
-          toast.success('add success');
+          toast.success(response?.message);
 
           nav(-1);
         } catch (err) {
@@ -81,7 +76,8 @@ const FileEditForm = ({ data }) => {
         }
 
       },
-      validationSchema: productSchema
+      // validationSchema: productSchema
+
 
     });
 
@@ -112,7 +108,7 @@ const FileEditForm = ({ data }) => {
             {/* 
             {errors.fileType && touched.fileType && <h1 className='text-pink-700'>{errors.fileType}</h1>} */}
 
-            {/* {values.newfileType && <img className="object-cover h-[400px] w-[400px]" src={values.newfileType} alt="" />} */}
+            {values.newfileType && <img className="object-cover h-[40px] w-[200px]" src={values.newfileType} alt="" />}
           </div>
 
           {/*file name  */}
@@ -161,7 +157,7 @@ const FileEditForm = ({ data }) => {
 
         </div>
 
-        <Button loading={false} type="submit" className="mt-6" fullWidth>
+        <Button loading={isLoading} type="submit" className="mt-6" fullWidth>
           Submit
         </Button>
 
