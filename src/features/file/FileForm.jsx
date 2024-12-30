@@ -4,9 +4,14 @@ import { useAddFileMutation } from "./UploadFileApi";
 import { useNavigate } from "react-router";
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import { userSlice } from "../auth/userSlice";
 
 const FileForm = () => {
   const [addFile, { isLoading }] = useAddFileMutation();
+  const { user } = useSelector((state) => state.userSlice);
+  console.log(user);
+
+
   const nav = useNavigate();
 
   const productSchema = Yup.object({

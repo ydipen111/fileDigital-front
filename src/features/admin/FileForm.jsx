@@ -20,7 +20,9 @@ const FileForm = () => {
   const { user } = useSelector((state) => state.userSlice);
 
 
-  // console.log(user.token);
+  const id = user.id;
+  console.log(id);
+
 
 
 
@@ -46,7 +48,9 @@ const FileForm = () => {
         description: '',
         metaData: '',
         fileType: null,
-        newfileType: ''
+        newfileType: '',
+        userId: id
+
 
 
       },
@@ -64,6 +68,7 @@ const FileForm = () => {
         formData.append('description', val.description);
         formData.append('metaData', val.metaData);
         formData.append('fileType', val.fileType);
+        formData.append('fileType', id);
         try {
           await addFile({
             body: formData,

@@ -127,9 +127,8 @@ const ProfileMenu = ({ user }) => {
 
                   case "signout":
                     signOutUser();
-
-
                     closeMenu();
+                    toast.success("Sign out successfully");
                 }
 
 

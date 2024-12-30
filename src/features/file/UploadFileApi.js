@@ -9,7 +9,7 @@ export const uploadFileApi = createApi({
   }),
   endpoints: (builder) => ({
 
-    //get uploaded file
+    //get Alluploaded file
     getUploadFile: builder.query({
       query: (search) => ({
         url: `/file/get-file`,
@@ -20,6 +20,24 @@ export const uploadFileApi = createApi({
       }),
       providesTags: ['File']
     }),
+
+    // get File by userId
+    //get Alluploaded file
+    getFileByUserId: builder.query({
+      query: (token) => ({
+        url: `/file/userFile`,
+        method: 'GET',
+        headers: {
+          'Authorization': `${token}`
+        }
+
+        // params: {
+        //   search: search
+        // }
+      }),
+      providesTags: ['File']
+    }),
+
 
     //getFileById
     getFileById: builder.query({
@@ -77,6 +95,7 @@ export const uploadFileApi = createApi({
 
 export const {
   useGetUploadFileQuery,
+  useGetFileByUserIdQuery,
   useGetFileByIdQuery,
   useAddFileMutation,
   useUpdateFileMutation,
