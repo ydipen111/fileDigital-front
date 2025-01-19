@@ -24,6 +24,16 @@ const HomeFeaturesData = ({ data }) => {
             </ul>
           </div>
 
+          
+          {/* ocrFeatures */}
+          <div>
+            <ul className="space-y-2 text-lg">
+              <li className="px-3 text-2xl rounded-md p-2 mt-4 hover:translate-x-3 ease-in-out duration-300">Ocr & Ai</li>
+              <li className="bg-gray-500 px-3 rounded-md p-2 hover:translate-x-3 ease-in-out duration-300">nepAI</li>
+              <li className="bg-gray-500 px-3 rounded-md p-2 hover:translate-x-3 ease-in-out duration-300">Ocr</li>
+            </ul>
+          </div>
+
           {/* filemanagement */}
           <div>
             <ul className="space-y-2 text-lg">
